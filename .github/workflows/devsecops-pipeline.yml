@@ -20,10 +20,10 @@ jobs:
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@18f251a5b2679f4f2ee4bc699479134a665287f3
         with:
           scan-type: 'fs'
           scan-ref: '.'
@@ -41,10 +41,10 @@ jobs:
     needs: security-scan
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@516d7f872115f212265934f07a4a6e38a4269e96
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
@@ -57,7 +57,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -75,7 +75,7 @@ jobs:
           docker build -t ${{ env.ECR_REPOSITORY }}:${{ github.sha }} .
 
       - name: Run Trivy image scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@18f251a5b2679f4f2ee4bc699479134a665287f3
         with:
           image-ref: '${{ env.ECR_REPOSITORY }}:${{ github.sha }}'
           format: 'sarif'
