@@ -178,8 +178,8 @@ I am a cloud enthusiast currently based in Bengaluru, specializing in AWS infras
 
 #### 🌐 Connect
 - **GitHub**: [@AyushxOD](https://github.com/AyushxOD)
-- **LinkedIn**: [Ayush Roy](https://linkedin.com/in/ayushroy)
-
+- **LinkedIn**: [Ayush Roy](https://www.linkedin.com/in/ayush-roy-a68079233/)
+- **Portfolio**: [Ayush.Social](https://ayush.social/)
 ---
 
 ## 📜 License
@@ -188,4 +188,4 @@ MIT License - feel free to use, modify, and distribute.
 
 ---
 
-*Built with ❤️ using GitHub Actions, AWS, SonarCloud, and Trivy*
+*Built with ❤️ using GitHub Actions, AWS, Claude Code, Gemini, SonarCloud, and Trivy*
