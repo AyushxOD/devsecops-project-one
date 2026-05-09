@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(terraform init *)",
+      "Bash(terraform plan *)",
+      "Bash(terraform apply *)",
+      "Bash(terraform output *)",
+      "Bash(aws ecr describe-repositories *)",
+      "Bash(aws ecr *)",
+      "Bash(docker login *)",
+      "Bash(docker tag express-api:latest *)",
+      "Bash(docker build *)",
+      "Bash(docker push *)",
+      "Bash(awk '{print $3}')",
+      "mcp__github__create_repository",
+      "mcp__github__get_me",
+      "Bash(git init *)",
+      "Bash(git branch *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "mcp__github__create_or_update_file",
+      "Bash(git rm *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(git checkout *)",
+      "Bash(git fetch *)",
+      "mcp__github__list_commits",
+      "Bash(git filter-branch *)",
+      "Bash(git reset *)",
+      "Bash(git reflog *)",
+      "Bash(git gc *)",
+      "Bash(rm -rf .git)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "terraform",
+    "docker",
+    "sonarqube"
+  ]
+}
