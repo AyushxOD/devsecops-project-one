@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@18f251a5b2679f4f2ee4bc699479134a665287f3
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           scan-ref: '.'
@@ -75,7 +75,7 @@ jobs:
           docker build -t ${{ env.ECR_REPOSITORY }}:${{ github.sha }} .
 
       - name: Run Trivy image scan
-        uses: aquasecurity/trivy-action@18f251a5b2679f4f2ee4bc699479134a665287f3
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: '${{ env.ECR_REPOSITORY }}:${{ github.sha }}'
           format: 'sarif'
