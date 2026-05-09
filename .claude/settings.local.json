@@ -32,7 +32,8 @@
       "Bash(git reflog *)",
       "Bash(git gc *)",
       "Bash(rm -rf .git)",
-      "Bash(gh secret *)"
+      "Bash(gh secret *)",
+      "Bash(npm install *)"
     ]
   },
   "enableAllProjectMcpServers": true,
