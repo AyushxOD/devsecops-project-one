@@ -60,7 +60,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@fa648b43de3d4d023bcb3f89ed6940096949c419
+        uses: aws-actions/configure-aws-credentials@e3dd1a4c33008475968f9ca9a15082006352936a
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -68,7 +68,7 @@ jobs:
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@ed06f2901106319cff7c273ab7c9f72c5413b50b
+        uses: aws-actions/amazon-ecr-login@062b7719017a9e2262ca9473216873b7dfb27b00
 
       - name: Build Docker image
         run: |
