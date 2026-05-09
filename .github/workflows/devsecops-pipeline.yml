@@ -19,10 +19,10 @@ jobs:
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231
 
       - name: Run Trivy filesystem scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
         with:
           scan-type: 'fs'
           scan-ref: '.'
@@ -30,7 +30,7 @@ jobs:
           output: 'trivy-results.sarif'
 
       - name: Upload Trivy results to GitHub Security tab
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@868e2ea5641bfa2e2af1f144664178b4c5575fab
         with:
           sarif_file: 'trivy-results.sarif'
 
@@ -40,10 +40,10 @@ jobs:
     needs: security-scan
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@59db25f34e16620e48ab4bb9e4a5dce155cb5432
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
@@ -56,10 +56,10 @@ jobs:
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@900f2210b1d28bbbd0bd22d17926b9e224e8f231
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@07ada0fe07a23e36e59cd9063b7fcd8900b01013
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -67,14 +67,14 @@ jobs:
 
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@fa648b43de3d4d023bcb3f89ed6940096949c419
 
       - name: Build Docker image
         run: |
           docker build -t ${{ env.ECR_REPOSITORY }}:${{ github.sha }} .
 
       - name: Run Trivy image scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25
         with:
           image-ref: '${{ env.ECR_REPOSITORY }}:${{ github.sha }}'
           format: 'sarif'
@@ -82,7 +82,7 @@ jobs:
           exit-code: '0'
 
       - name: Upload Trivy image scan results
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@868e2ea5641bfa2e2af1f144664178b4c5575fab
         with:
           sarif_file: 'trivy-image-results.sarif'
 
